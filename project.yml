@@ -1,6 +1,7 @@
 name: Oggi
 options:
   bundleIdPrefix: com.fabioferrero
+  developmentLanguage: en
   deploymentTarget:
     macOS: "14.0"
 settings:
@@ -26,8 +27,8 @@ targets:
       path: App/Info.plist
       properties:
         CFBundleDisplayName: Oggi
-        CFBundleDevelopmentRegion: it
-        CFBundleLocalizations: [it]
+        CFBundleDevelopmentRegion: en
+        CFBundleLocalizations: [en, it]
         LSUIElement: true
         LSApplicationCategoryType: public.app-category.productivity
         CFBundleURLTypes:
@@ -52,8 +53,8 @@ targets:
       path: Widget/Info.plist
       properties:
         CFBundleDisplayName: Oggi
-        CFBundleDevelopmentRegion: it
-        CFBundleLocalizations: [it]
+        CFBundleDevelopmentRegion: en
+        CFBundleLocalizations: [en, it]
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
     entitlements:

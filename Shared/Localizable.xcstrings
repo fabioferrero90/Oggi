@@ -1,0 +1,336 @@
+{
+  "sourceLanguage": "en",
+  "version": "1.0",
+  "strings": {
+    "%lld to do": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld da fare"
+          }
+        }
+      }
+    },
+    "+%lld more": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+%lld altre"
+          }
+        }
+      }
+    },
+    "Above windows": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sopra le finestre"
+          }
+        }
+      }
+    },
+    "Add a task": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aggiungi un'attività"
+          }
+        }
+      }
+    },
+    "Call the accountant": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chiamare il commercialista"
+          }
+        }
+      }
+    },
+    "Close sidebar": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chiudi la sidebar"
+          }
+        }
+      }
+    },
+    "Complete task": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Completa attività"
+          }
+        }
+      }
+    },
+    "Date…": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Data…"
+          }
+        }
+      }
+    },
+    "Delete": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elimina"
+          }
+        }
+      }
+    },
+    "Gym": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Palestra"
+          }
+        }
+      }
+    },
+    "Mark as done": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Completa"
+          }
+        }
+      }
+    },
+    "Mark as not done": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segna come da fare"
+          }
+        }
+      }
+    },
+    "Move to today": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sposta a oggi"
+          }
+        }
+      }
+    },
+    "New task…": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuova attività…"
+          }
+        }
+      }
+    },
+    "Nothing planned": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niente in programma"
+          }
+        }
+      }
+    },
+    "Nothing planned for today.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niente in programma per oggi."
+          }
+        }
+      }
+    },
+    "Open at login": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri al login"
+          }
+        }
+      }
+    },
+    "Overdue": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In ritardo"
+          }
+        }
+      }
+    },
+    "Pick a date": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scegli una data"
+          }
+        }
+      }
+    },
+    "Postpone to tomorrow": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rimanda a domani"
+          }
+        }
+      }
+    },
+    "Quit": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esci"
+          }
+        }
+      }
+    },
+    "Reply to emails": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rispondere alle email"
+          }
+        }
+      }
+    },
+    "Screen edge": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lato dello schermo"
+          }
+        }
+      }
+    },
+    "Show the full-height list on the edge of the screen": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostra la lista a tutta altezza sul bordo dello schermo"
+          }
+        }
+      }
+    },
+    "Sidebar": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sidebar"
+          }
+        }
+      }
+    },
+    "Title": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Titolo"
+          }
+        }
+      }
+    },
+    "Today": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oggi"
+          }
+        }
+      }
+    },
+    "Today's tasks: check them off, postpone them to tomorrow or add new ones.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le cose da fare oggi: spuntale, rimandale a domani o aggiungine di nuove."
+          }
+        }
+      }
+    },
+    "Tomorrow": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Domani"
+          }
+        }
+      }
+    },
+    "Upcoming · %lld": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prossimi giorni · %lld"
+          }
+        }
+      }
+    },
+    "What do you need to do?": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cosa devi fare?"
+          }
+        }
+      }
+    },
+    "↩ save · esc close": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "↩ salva · esc chiudi"
+          }
+        }
+      }
+    },
+    "⌘↩ tomorrow": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⌘↩ domani"
+          }
+        }
+      }
+    }
+  }
+}

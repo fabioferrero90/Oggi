@@ -86,7 +86,8 @@ struct QuickAddView: View {
                 Image(systemName: editing == nil ? "plus.circle.fill" : "pencil.circle.fill")
                     .font(.title)
                     .foregroundStyle(.tint)
-                TextField(editing == nil ? "Cosa devi fare?" : "Titolo", text: $title, axis: .vertical)
+                TextField(editing == nil ? LocalizedStringKey("What do you need to do?") : LocalizedStringKey("Title"),
+                          text: $title, axis: .vertical)
                     .textFieldStyle(.plain)
                     .font(.title2)
                     .focused($focused)
@@ -98,12 +99,12 @@ struct QuickAddView: View {
                 Spacer()
                 if let editing {
                     iconButton(editing.isDone ? "arrow.uturn.backward.circle" : "checkmark.circle",
-                               help: editing.isDone ? "Segna come da fare" : "Completata") {
+                               help: editing.isDone ? "Mark as not done" : "Mark as done") {
                         store.toggle(editing.id); close()
                     }
-                    iconButton("trash", help: "Elimina") { store.delete(editing.id); close() }
+                    iconButton("trash", help: "Delete") { store.delete(editing.id); close() }
                 }
-                Text("↩ salva · esc chiudi")
+                Text("↩ save · esc close")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -128,7 +129,7 @@ struct QuickAddView: View {
         close()
     }
 
-    private func iconButton(_ symbol: String, help: String, action: @escaping () -> Void) -> some View {
+    private func iconButton(_ symbol: String, help: LocalizedStringKey, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: symbol)
                 .font(.body)

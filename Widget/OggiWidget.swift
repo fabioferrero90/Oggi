@@ -11,9 +11,9 @@ struct TodayProvider: TimelineProvider {
     func placeholder(in context: Context) -> TodayEntry {
         let today = Calendar.current.startOfDay(for: Date())
         return TodayEntry(date: Date(), items: [
-            TodoItem(title: "Rispondere alle email", day: today),
-            TodoItem(title: "Chiamare il commercialista", day: today),
-            TodoItem(title: "Palestra", day: today, doneAt: Date()),
+            TodoItem(title: String(localized: "Reply to emails"), day: today),
+            TodoItem(title: String(localized: "Call the accountant"), day: today),
+            TodoItem(title: String(localized: "Gym"), day: today, doneAt: Date()),
         ])
     }
 
@@ -58,7 +58,7 @@ struct OggiWidgetView: View {
                 }
                 if entry.items.count > maxRows {
                     Link(destination: OggiLink.open) {
-                        Text("+\(entry.items.count - maxRows) altre")
+                        Text("+\(entry.items.count - maxRows) more")
                             .font(.caption2)
                             .foregroundStyle(.secondary)
                     }
@@ -73,7 +73,7 @@ struct OggiWidgetView: View {
     private var header: some View {
         HStack(alignment: .firstTextBaseline) {
             VStack(alignment: .leading, spacing: 0) {
-                Text("Oggi")
+                Text("Today")
                     .font(.headline)
                 if family != .systemSmall {
                     Text(entry.date.formatted(.dateTime.weekday(.wide).day().month(.wide)))
@@ -99,11 +99,11 @@ struct OggiWidgetView: View {
     private var emptyState: some View {
         VStack(alignment: .leading, spacing: 4) {
             Spacer(minLength: 0)
-            Label("Niente in programma", systemImage: "checkmark.circle")
+            Label("Nothing planned", systemImage: "checkmark.circle")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
             Link(destination: OggiLink.add) {
-                Text("Aggiungi un'attività")
+                Text("Add a task")
                     .font(.caption)
                     .foregroundStyle(.tint)
             }
@@ -143,7 +143,7 @@ struct TodoRow: View {
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                .help("Rimanda a domani")
+                .help("Postpone to tomorrow")
             }
         }
     }
@@ -155,7 +155,7 @@ struct OggiWidget: Widget {
             OggiWidgetView(entry: entry)
         }
         .configurationDisplayName("Oggi")
-        .description("Le cose da fare oggi: spuntale, rimandale a domani o aggiungine di nuove.")
+        .description("Today's tasks: check them off, postpone them to tomorrow or add new ones.")
         .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
     }
 }

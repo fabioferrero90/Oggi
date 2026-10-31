@@ -1,12 +1,12 @@
 import SwiftUI
 
 extension Date {
-    /// "Oggi", "Domani" oppure la data abbreviata ("lun 3 nov").
+    /// "Today", "Tomorrow", "Overdue" oppure la data abbreviata ("Mon 3 Nov").
     var dayLabel: String {
         let cal = Calendar.current
-        if cal.isDateInToday(self) { return "Oggi" }
-        if cal.isDateInTomorrow(self) { return "Domani" }
-        if self < cal.startOfDay(for: Date()) { return "In ritardo" }
+        if cal.isDateInToday(self) { return String(localized: "Today") }
+        if cal.isDateInTomorrow(self) { return String(localized: "Tomorrow") }
+        if self < cal.startOfDay(for: Date()) { return String(localized: "Overdue") }
         return formatted(.dateTime.weekday(.abbreviated).day().month(.abbreviated))
     }
 }
@@ -22,10 +22,10 @@ struct DayChooser: View {
 
     var body: some View {
         HStack(spacing: 4) {
-            chip("Oggi", selected: cal.isDateInToday(day)) { day = today }
-            chip("Domani", selected: cal.isDateInTomorrow(day)) { day = tomorrow }
+            chip(Text("Today"), selected: cal.isDateInToday(day)) { day = today }
+            chip(Text("Tomorrow"), selected: cal.isDateInTomorrow(day)) { day = tomorrow }
             let custom = !cal.isDateInToday(day) && !cal.isDateInTomorrow(day)
-            chip(custom ? day.dayLabel : "Data…", systemImage: "calendar", selected: custom) { showCalendar.toggle() }
+            chip(custom ? Text(day.dayLabel) : Text("Date…"), systemImage: "calendar", selected: custom) { showCalendar.toggle() }
                 .popover(isPresented: $showCalendar, arrowEdge: .bottom) {
                     DatePicker("", selection: $day, in: today..., displayedComponents: .date)
                         .datePickerStyle(.graphical)
@@ -36,12 +36,12 @@ struct DayChooser: View {
         }
     }
 
-    private func chip(_ title: String, systemImage: String? = nil, selected: Bool,
+    private func chip(_ title: Text, systemImage: String? = nil, selected: Bool,
                       action: @escaping () -> Void) -> some View {
         Button(action: action) {
             HStack(spacing: 4) {
                 if let systemImage { Image(systemName: systemImage) }
-                Text(title)
+                title
             }
             .font(.caption.weight(selected ? .semibold : .regular))
             .padding(.horizontal, 8)

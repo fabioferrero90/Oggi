@@ -68,6 +68,8 @@ final class SidebarController: NSObject, ObservableObject, NSWindowDelegate {
         panel.hasShadow = true
         panel.isReleasedWhenClosed = false
         panel.hidesOnDeactivate = false
+        // Prende la tastiera solo quando si clicca un campo di testo, non all'avvio.
+        panel.becomesKeyOnlyIfNeeded = true
         panel.collectionBehavior = [.canJoinAllSpaces, .stationary, .ignoresCycle, .fullScreenNone]
         panel.minSize = NSSize(width: 260, height: 300)
         panel.maxSize = NSSize(width: 560, height: CGFloat.greatestFiniteMagnitude)

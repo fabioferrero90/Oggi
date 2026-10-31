@@ -27,7 +27,7 @@ struct ContentView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 2) {
                     if store.today.isEmpty {
-                        Text("Niente in programma per oggi.")
+                        Text("Nothing planned for today.")
                             .foregroundStyle(.secondary)
                             .padding(.vertical, 18)
                             .frame(maxWidth: .infinity)
@@ -42,7 +42,7 @@ struct ContentView: View {
                                 TodoEditableRow(item: item, isUpcoming: true)
                             }
                         } label: {
-                            Text("Prossimi giorni · \(store.upcoming.count)")
+                            Text("Upcoming · \(store.upcoming.count)")
                                 .font(.caption.weight(.semibold))
                                 .foregroundStyle(.secondary)
                         }
@@ -69,13 +69,13 @@ struct ContentView: View {
 
     private var header: some View {
         HStack(alignment: .firstTextBaseline) {
-            Text("Oggi").font(.title3.weight(.semibold))
+            Text("Today").font(.title3.weight(.semibold))
             Text(Date().formatted(.dateTime.weekday(.wide).day().month(.wide)))
                 .font(.callout)
                 .foregroundStyle(.secondary)
             Spacer()
             if store.openToday > 0 {
-                Text("\(store.openToday) da fare")
+                Text("\(store.openToday) to do")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -87,7 +87,7 @@ struct ContentView: View {
             HStack(alignment: .firstTextBaseline, spacing: 6) {
                 Image(systemName: "plus.circle.fill")
                     .foregroundStyle(.tint)
-                TextField("Nuova attività…", text: $newTitle, axis: .vertical)
+                TextField("New task…", text: $newTitle, axis: .vertical)
                     .textFieldStyle(.plain)
                     .focused($addFocused)
                     .onSubmit { submit(on: newDay) }
@@ -99,7 +99,7 @@ struct ContentView: View {
             HStack {
                 DayChooser(day: $newDay)
                 Spacer()
-                Text("⌘↩ domani")
+                Text("⌘↩ tomorrow")
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
             }
@@ -125,14 +125,14 @@ struct ContentView: View {
                 .pickerStyle(.segmented)
                 .labelsHidden()
                 .fixedSize()
-                .help("Lato dello schermo")
-                Toggle("Sopra le finestre", isOn: $sidebarController.onTop)
+                .help("Screen edge")
+                Toggle("Above windows", isOn: $sidebarController.onTop)
                     .toggleStyle(.checkbox)
                 Spacer()
                 Button { sidebarController.isVisible = false } label: { Image(systemName: "xmark") }
                     .buttonStyle(.borderless)
                     .foregroundStyle(.secondary)
-                    .help("Chiudi la sidebar")
+                    .help("Close sidebar")
             }
             .font(.caption)
             .controlSize(.small)
@@ -141,9 +141,9 @@ struct ContentView: View {
                 LaunchAtLoginToggle()
                 Toggle("Sidebar", isOn: $sidebarController.isVisible)
                     .toggleStyle(.checkbox)
-                    .help("Mostra la lista a tutta altezza sul bordo dello schermo")
+                    .help("Show the full-height list on the edge of the screen")
                 Spacer()
-                Button("Esci") { NSApp.terminate(nil) }
+                Button("Quit") { NSApp.terminate(nil) }
                     .buttonStyle(.borderless)
                     .foregroundStyle(.secondary)
             }
@@ -169,7 +169,7 @@ struct TodoEditableRow: View {
                     .foregroundStyle(item.isDone ? AnyShapeStyle(.tint) : AnyShapeStyle(.secondary))
             }
             .buttonStyle(.plain)
-            .help(item.isDone ? "Segna come da fare" : "Completa")
+            .help(item.isDone ? "Mark as not done" : "Mark as done")
 
             TextField("", text: $title, axis: .vertical)
                 .textFieldStyle(.plain)
@@ -188,12 +188,12 @@ struct TodoEditableRow: View {
             if hovering || focused || showCalendar {
                 HStack(spacing: 2) {
                     if isUpcoming {
-                        iconButton("arrow.uturn.backward", help: "Sposta a oggi") { store.setDay(item.id, to: store.todayDate) }
+                        iconButton("arrow.uturn.backward", help: "Move to today") { store.setDay(item.id, to: store.todayDate) }
                     } else if !item.isDone {
-                        iconButton("arrow.turn.up.right", help: "Rimanda a domani") { store.postpone(item.id) }
+                        iconButton("arrow.turn.up.right", help: "Postpone to tomorrow") { store.postpone(item.id) }
                     }
                     if !item.isDone {
-                        iconButton("calendar", help: "Scegli una data") { showCalendar.toggle() }
+                        iconButton("calendar", help: "Pick a date") { showCalendar.toggle() }
                             .popover(isPresented: $showCalendar, arrowEdge: .bottom) {
                                 DatePicker("", selection: Binding(
                                     get: { max(item.day, store.todayDate) },
@@ -204,7 +204,7 @@ struct TodoEditableRow: View {
                                 .padding(10)
                             }
                     }
-                    iconButton("trash", help: "Elimina") { store.delete(item.id) }
+                    iconButton("trash", help: "Delete") { store.delete(item.id) }
                 }
             }
         }
@@ -225,7 +225,7 @@ struct TodoEditableRow: View {
         }
     }
 
-    private func iconButton(_ symbol: String, help: String, action: @escaping () -> Void) -> some View {
+    private func iconButton(_ symbol: String, help: LocalizedStringKey, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: symbol)
                 .font(.caption)
@@ -242,7 +242,7 @@ struct LaunchAtLoginToggle: View {
     @State private var enabled = SMAppService.mainApp.status == .enabled
 
     var body: some View {
-        Toggle("Apri al login", isOn: $enabled)
+        Toggle("Open at login", isOn: $enabled)
             .toggleStyle(.checkbox)
             .onChange(of: enabled) { _, on in
                 do {

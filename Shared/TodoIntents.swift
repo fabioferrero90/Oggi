@@ -2,7 +2,7 @@ import AppIntents
 import Foundation
 
 struct ToggleTodoIntent: AppIntent {
-    static var title: LocalizedStringResource = "Completa attività"
+    static var title: LocalizedStringResource = "Complete task"
     static var isDiscoverable = false
 
     @Parameter(title: "ID") var id: String
@@ -17,7 +17,7 @@ struct ToggleTodoIntent: AppIntent {
 }
 
 struct PostponeTodoIntent: AppIntent {
-    static var title: LocalizedStringResource = "Rimanda a domani"
+    static var title: LocalizedStringResource = "Postpone to tomorrow"
     static var isDiscoverable = false
 
     @Parameter(title: "ID") var id: String
