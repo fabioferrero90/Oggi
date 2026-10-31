@@ -1,0 +1,28 @@
+{
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "image-name" : "check.png",
+          "name" : "check"
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "specular" : true
+    },
+    {
+      "layers" : [
+        {
+          "image-name" : "background.png",
+          "name" : "background"
+        }
+      ]
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : "shared"
+  }
+}

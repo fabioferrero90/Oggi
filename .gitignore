@@ -1,0 +1,11 @@
+# Build
+build/
+DerivedData/
+
+# Xcode (il progetto si rigenera con `xcodegen generate`)
+*.xcodeproj/
+xcuserdata/
+*.xcworkspace/
+
+# macOS
+.DS_Store

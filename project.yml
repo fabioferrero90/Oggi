@@ -1,0 +1,66 @@
+name: Oggi
+options:
+  bundleIdPrefix: com.fabioferrero
+  deploymentTarget:
+    macOS: "14.0"
+settings:
+  base:
+    DEVELOPMENT_TEAM: 8R256TB48E
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    ENABLE_HARDENED_RUNTIME: YES
+targets:
+  Oggi:
+    type: application
+    platform: macOS
+    sources:
+      - path: App
+        excludes: [AppIcon.icon]
+      - path: App/AppIcon.icon
+        type: file
+        buildPhase: resources
+      - Shared
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: Oggi
+        CFBundleDevelopmentRegion: it
+        CFBundleLocalizations: [it]
+        LSUIElement: true
+        LSApplicationCategoryType: public.app-category.productivity
+        CFBundleURLTypes:
+          - CFBundleURLName: com.fabioferrero.oggi
+            CFBundleURLSchemes: [oggi]
+    entitlements:
+      path: App/Oggi.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.application-groups: [8R256TB48E.com.fabioferrero.oggi]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.fabioferrero.oggi
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    dependencies:
+      - target: OggiWidget
+  OggiWidget:
+    type: app-extension
+    platform: macOS
+    sources: [Widget, Shared]
+    info:
+      path: Widget/Info.plist
+      properties:
+        CFBundleDisplayName: Oggi
+        CFBundleDevelopmentRegion: it
+        CFBundleLocalizations: [it]
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: Widget/OggiWidget.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.application-groups: [8R256TB48E.com.fabioferrero.oggi]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.fabioferrero.oggi.widget
